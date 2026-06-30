@@ -1,8 +1,9 @@
+import { exec } from "child_process";
+import { promisify } from "util";
 import { NextRequest, NextResponse } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
 import { SCREENS } from "@/lib/data";
 
-const client = new Anthropic();
+const execAsync = promisify(exec);
 
 export async function POST(req: NextRequest) {
   const { name, description } = await req.json();
@@ -29,16 +30,18 @@ ${screenList}
 예시: ["live_compare", "toto_compare"]`;
 
   try {
-    const message = await client.messages.create({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 256,
-      messages: [{ role: "user", content: prompt }],
-    });
+    const { stdout, stderr } = await execAsync(
+      `claude -p "${prompt.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`,
+      { timeout: 30000 }
+    );
 
-    const text = message.content[0].type === "text" ? message.content[0].text : "";
-    const match = text.match(/\[[\s\S]*?\]/);
+    if (stderr && !stdout) {
+      return NextResponse.json({ error: stderr }, { status: 500 });
+    }
+
+    const match = stdout.match(/\[[\s\S]*?\]/);
     if (!match) {
-      return NextResponse.json({ error: "파싱 실패", raw: text }, { status: 500 });
+      return NextResponse.json({ error: "파싱 실패", raw: stdout }, { status: 500 });
     }
 
     const screenIds: string[] = JSON.parse(match[0]);
