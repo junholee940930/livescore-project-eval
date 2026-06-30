@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --xl-green: #217346;
+  --xl-green-dark: #185430;
+  --xl-green-light: #E2EFDA;
+  --xl-blue: #4472C4;
+  --xl-blue-light: #D9E1F2;
+  --xl-tab-active: #ffffff;
+  --xl-tab-inactive: #E8E8E8;
+  --xl-border: #D0CECE;
+  --xl-border-dark: #AEAAAA;
+  --xl-header-bg: #F2F2F2;
+  --xl-row-alt: #F9F9F9;
+  --xl-selected: #BFDBF7;
+  --xl-font: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+}
+
+body {
+  background: #F0F0F0;
+  color: #000000;
+  font-family: var(--xl-font);
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: auto;
+}
+
+/* Excel-style input */
+.xl-input {
+  border: 1px solid #888;
+  border-radius: 0;
+  padding: 3px 6px;
+  font-family: var(--xl-font);
+  font-size: 12px;
+  background: white;
+  color: #000;
+  outline: none;
+}
+.xl-input:focus {
+  border-color: var(--xl-blue);
+  box-shadow: 0 0 0 1px var(--xl-blue);
+  background: #EFF4FF;
+}
+
+/* Excel-style button */
+.xl-btn {
+  border: 1px solid #AEAAAA;
+  border-radius: 2px;
+  padding: 4px 12px;
+  font-family: var(--xl-font);
+  font-size: 12px;
+  background: #F2F2F2;
+  color: #000;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.xl-btn:hover { background: #E0E0E0; border-color: #888; }
+.xl-btn:active { background: #D0D0D0; }
+
+.xl-btn-primary {
+  background: var(--xl-blue);
+  color: white;
+  border-color: #2F5496;
+}
+.xl-btn-primary:hover { background: #2F5496; border-color: #243E75; }
+
+.xl-btn-green {
+  background: var(--xl-green);
+  color: white;
+  border-color: var(--xl-green-dark);
+}
+.xl-btn-green:hover { background: var(--xl-green-dark); }
+
+/* Excel table */
+.xl-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  font-family: var(--xl-font);
+}
+.xl-table th {
+  background: var(--xl-blue);
+  color: white;
+  border: 1px solid #2F5496;
+  padding: 4px 8px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.xl-table td {
+  border: 1px solid var(--xl-border);
+  padding: 3px 8px;
+  vertical-align: middle;
+}
+.xl-table tr:nth-child(even) td { background: var(--xl-row-alt); }
+.xl-table tr:hover td { background: var(--xl-selected) !important; }
+.xl-table tfoot td {
+  background: var(--xl-blue-light) !important;
+  border-top: 2px solid var(--xl-blue);
+  font-weight: 700;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #F0F0F0; }
+::-webkit-scrollbar-thumb { background: #C0C0C0; border: 1px solid #A0A0A0; }
+::-webkit-scrollbar-thumb:hover { background: #A0A0A0; }
