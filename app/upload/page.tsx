@@ -48,20 +48,25 @@ export default function UploadPage() {
     setMatching(true);
     setMatchProgress(0);
     const updated = [...parsed];
-    for (let i = 0; i < updated.length; i++) {
-      const p = updated[i];
-      try {
-        const res = await fetch("/api/match-screens", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: p.name, description: p.description }),
-        });
-        const data = await res.json();
-        if (res.ok) updated[i] = { ...p, screenIds: data.screenIds };
-      } catch {}
-      setMatchProgress(i + 1);
-      setParsed([...updated]);
-    }
+    let done = 0;
+
+    await Promise.all(
+      updated.map(async (p, i) => {
+        try {
+          const res = await fetch("/api/match-screens", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: p.name, description: p.description }),
+          });
+          const data = await res.json();
+          if (res.ok) updated[i] = { ...p, screenIds: data.screenIds };
+        } catch {}
+        done++;
+        setMatchProgress(done);
+        setParsed([...updated]);
+      })
+    );
+
     setMatching(false);
   };
 
