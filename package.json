@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack false",
+    "dev": "chcp 65001 >nul && next dev --turbopack false -p 3030",
     "build": "next build",
-    "start": "next start",
+    "start": "chcp 65001 >nul && next start -p 3030",
     "lint": "eslint"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.110.0",
     "@types/uuid": "^10.0.0",
     "next": "^14.2.18",
     "react": "^18.3.1",
