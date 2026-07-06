@@ -3,13 +3,21 @@ import { promisify } from "util";
 import path from "path";
 import { NextRequest, NextResponse } from "next/server";
 import { SCREENS } from "@/lib/data";
+import claudeCodePkg from "@anthropic-ai/claude-code/package.json";
 
 const execAsync = promisify(exec);
 
-// node_modules에 함께 배포되는 @anthropic-ai/claude-code 바이너리를 직접 가리켜
-// 서버리스 환경 PATH에 claude가 없어도 실행 가능하게 함. 인증은 CLAUDE_CODE_OAUTH_TOKEN
-// (subscription OAuth token, `claude setup-token`으로 발급) 환경변수로 처리.
-const CLAUDE_BIN = path.join(process.cwd(), "node_modules", ".bin", "claude");
+// node_modules/.bin/claude는 심볼릭 링크라 서버리스 트레이싱에서 누락되고,
+// bin 파일명은 플랫폼마다 다름(Windows: claude.exe, Linux: claude) — 그래서
+// 배포 플랫폼에서 npm이 실제로 설치한 파일을 package.json의 bin 필드로 런타임에 찾음.
+// 인증은 CLAUDE_CODE_OAUTH_TOKEN(subscription OAuth, `claude setup-token`) 환경변수로 처리.
+const CLAUDE_BIN = path.join(
+  process.cwd(),
+  "node_modules",
+  "@anthropic-ai",
+  "claude-code",
+  (claudeCodePkg as { bin: Record<string, string> }).bin.claude
+);
 
 const screenList = SCREENS.map(
   (s) =>
