@@ -1,8 +1,9 @@
+import { exec } from "child_process";
+import { promisify } from "util";
 import { NextRequest, NextResponse } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
 import { SCREENS } from "@/lib/data";
 
-const client = new Anthropic();
+const execAsync = promisify(exec);
 
 const screenList = SCREENS.map(
   (s) =>
@@ -23,18 +24,23 @@ ${screenList}
 예시: ["live_compare", "toto_compare"]`;
 
   try {
-    const message = await client.messages.create({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 128,
-      messages: [{ role: "user", content: prompt }],
-    });
+    const { stdout, stderr } = await execAsync(
+      `claude -p "${prompt.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`,
+      { timeout: 30000 }
+    );
 
-    const text = message.content[0].type === "text" ? message.content[0].text : "";
-    const match = text.match(/\[[\s\S]*?\]/);
-    if (!match) return NextResponse.json({ screenIds: [] });
+    if (stderr && !stdout) {
+      return NextResponse.json({ error: stderr }, { status: 500 });
+    }
+
+    const match = stdout.match(/\[[\s\S]*?\]/);
+    if (!match) {
+      return NextResponse.json({ screenIds: [] });
+    }
 
     const screenIds: string[] = JSON.parse(match[0]);
     const validIds = screenIds.filter((id) => SCREENS.some((s) => s.id === id));
+
     return NextResponse.json({ screenIds: validIds });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
