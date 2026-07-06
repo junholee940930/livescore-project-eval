@@ -1,9 +1,15 @@
 import { exec } from "child_process";
 import { promisify } from "util";
+import path from "path";
 import { NextRequest, NextResponse } from "next/server";
 import { SCREENS } from "@/lib/data";
 
 const execAsync = promisify(exec);
+
+// node_modules에 함께 배포되는 @anthropic-ai/claude-code 바이너리를 직접 가리켜
+// 서버리스 환경 PATH에 claude가 없어도 실행 가능하게 함. 인증은 CLAUDE_CODE_OAUTH_TOKEN
+// (subscription OAuth token, `claude setup-token`으로 발급) 환경변수로 처리.
+const CLAUDE_BIN = path.join(process.cwd(), "node_modules", ".bin", "claude");
 
 const screenList = SCREENS.map(
   (s) =>
@@ -25,8 +31,11 @@ ${screenList}
 
   try {
     const { stdout, stderr } = await execAsync(
-      `claude -p "${prompt.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`,
-      { timeout: 30000 }
+      `"${CLAUDE_BIN}" -p "${prompt.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`,
+      {
+        timeout: 30000,
+        env: { ...process.env, CI: "true" },
+      }
     );
 
     if (stderr && !stdout) {
