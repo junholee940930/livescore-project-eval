@@ -1,23 +1,8 @@
-import { exec } from "child_process";
-import { promisify } from "util";
-import path from "path";
 import { NextRequest, NextResponse } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
 import { SCREENS } from "@/lib/data";
-import claudeCodePkg from "@anthropic-ai/claude-code/package.json";
 
-const execAsync = promisify(exec);
-
-// node_modules/.bin/claude는 심볼릭 링크라 서버리스 트레이싱에서 누락되고,
-// bin 파일명은 플랫폼마다 다름(Windows: claude.exe, Linux: claude) — 그래서
-// 배포 플랫폼에서 npm이 실제로 설치한 파일을 package.json의 bin 필드로 런타임에 찾음.
-// 인증은 CLAUDE_CODE_OAUTH_TOKEN(subscription OAuth, `claude setup-token`) 환경변수로 처리.
-const CLAUDE_BIN = path.join(
-  process.cwd(),
-  "node_modules",
-  "@anthropic-ai",
-  "claude-code",
-  (claudeCodePkg as { bin: Record<string, string> }).bin.claude
-);
+const client = new Anthropic();
 
 const screenList = SCREENS.map(
   (s) =>
@@ -38,26 +23,18 @@ ${screenList}
 예시: ["live_compare", "toto_compare"]`;
 
   try {
-    const { stdout, stderr } = await execAsync(
-      `"${CLAUDE_BIN}" -p "${prompt.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`,
-      {
-        timeout: 30000,
-        env: { ...process.env, CI: "true" },
-      }
-    );
+    const message = await client.messages.create({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 128,
+      messages: [{ role: "user", content: prompt }],
+    });
 
-    if (stderr && !stdout) {
-      return NextResponse.json({ error: stderr }, { status: 500 });
-    }
-
-    const match = stdout.match(/\[[\s\S]*?\]/);
-    if (!match) {
-      return NextResponse.json({ screenIds: [] });
-    }
+    const text = message.content[0].type === "text" ? message.content[0].text : "";
+    const match = text.match(/\[[\s\S]*?\]/);
+    if (!match) return NextResponse.json({ screenIds: [] });
 
     const screenIds: string[] = JSON.parse(match[0]);
     const validIds = screenIds.filter((id) => SCREENS.some((s) => s.id === id));
-
     return NextResponse.json({ screenIds: validIds });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
