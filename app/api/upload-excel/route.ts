@@ -14,7 +14,7 @@ function parseCollaborators(raw: string): Collaborator[] {
       const [id, name, role, equityStr, skillStr] = parts;
       const equityPct = parseFloat(equityStr?.replace("%", "") ?? "0") || 0;
       const skillValue = parseInt(skillStr?.replace(/[^0-9]/g, "") ?? "0") || 0;
-      return { id: id.trim(), name: name.trim(), role: role.trim(), equityPct, skillValue };
+      return { id: id.trim(), name: name.trim(), role: role.trim(), equityPct, skillValue, investmentAmount: 0 };
     })
     .filter(Boolean) as Collaborator[];
 }

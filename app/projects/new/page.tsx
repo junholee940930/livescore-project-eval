@@ -56,6 +56,7 @@ export default function NewProject() {
       description: description.trim(),
       season,
       collaborators: [],
+      purchases: [],
       screenIds: selectedIds,
       pickCount,
       giftCount,

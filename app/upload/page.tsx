@@ -48,25 +48,20 @@ export default function UploadPage() {
     setMatching(true);
     setMatchProgress(0);
     const updated = [...parsed];
-    let done = 0;
-
-    await Promise.all(
-      updated.map(async (p, i) => {
-        try {
-          const res = await fetch("/api/match-screens", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name: p.name, description: p.description }),
-          });
-          const data = await res.json();
-          if (res.ok) updated[i] = { ...p, screenIds: data.screenIds };
-        } catch {}
-        done++;
-        setMatchProgress(done);
-        setParsed([...updated]);
-      })
-    );
-
+    for (let i = 0; i < updated.length; i++) {
+      const p = updated[i];
+      try {
+        const res = await fetch("/api/match-screens", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: p.name, description: p.description }),
+        });
+        const data = await res.json();
+        if (res.ok) updated[i] = { ...p, screenIds: data.screenIds };
+      } catch {}
+      setMatchProgress(i + 1);
+      setParsed([...updated]);
+    }
     setMatching(false);
   };
 
@@ -148,7 +143,7 @@ export default function UploadPage() {
 
         {/* 하단 요약 */}
         <div style={{ marginTop: "6px", background: "#E2EFDA", border: "1px solid #A9C96A", padding: "4px 12px", fontSize: "11px", color: "#217346" }}>
-          합계: {parsed.length}건 · 협업자 {parsed.reduce((s, p) => s + p.collaborators.length, 0)}명 · 스킬값 {parsed.reduce((s, p) => s + (p.skillValueTotal ?? 0), 0).toLocaleString("ko-KR")}원
+          합계: {parsed.length}건 · 협업자 {new Set(parsed.flatMap((p) => p.collaborators.map((c) => c.name))).size}명 (중복제거) · 스킬값 {parsed.reduce((s, p) => s + (p.skillValueTotal ?? 0), 0).toLocaleString("ko-KR")}원
         </div>
       </div>
     );
