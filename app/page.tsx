@@ -231,14 +231,10 @@ export default function MarketDashboard() {
                 const isUp = changePct > 0;
                 const isDown = changePct < 0;
                 const color = isUp ? UP_COLOR : isDown ? DN_COLOR : "#0F172A";
-                const rowBg = isUp ? "#FFF5F5" : isDown ? "#F0F7FF" : (i % 2 === 0 ? "#FFFFFF" : "#FAFBFC");
-                const rowBgHover = isUp ? "#FFEBEE" : isDown ? "#E3F2FD" : "#EFF6FF";
                 return (
                   <tr
                     key={project.id}
-                    style={{ borderBottom: "1px solid #E5E7EB", background: rowBg, height: "28px" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.background = rowBgHover)}
-                    onMouseLeave={(e) => (e.currentTarget.style.background = rowBg)}
+                    style={{ borderBottom: "1px solid #E5E7EB", background: "#FFFFFF", height: "28px" }}
                   >
                     {/* 종목코드 */}
                     <td style={{ padding: "4px 8px", textAlign: "center" }}>
@@ -250,7 +246,7 @@ export default function MarketDashboard() {
                     {/* 프로젝트명 */}
                     <td style={{ padding: "4px 8px" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "nowrap" }}>
-                        <span style={{ fontWeight: 600, color: "#0F172A", fontSize: "12px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "160px" }}>{project.name}</span>
+                        <span style={{ fontWeight: 600, color: "#0F172A", fontSize: "12px", whiteSpace: "nowrap" }}>{project.name}</span>
                         {project.pm && <span style={{ fontSize: "10px", color: "#94A3B8", whiteSpace: "nowrap", flexShrink: 0 }}>· {project.pm}</span>}
                       </div>
                       <span style={{ fontSize: "10px", background: "#E2E8F0", color: "#475569", padding: "0 4px", fontFamily: "monospace", fontWeight: 600 }}>
@@ -265,18 +261,13 @@ export default function MarketDashboard() {
                       </span>
                     </td>
 
-                    {/* 현재가 — 색반전 박스 */}
+                    {/* 현재가 */}
                     <td style={{ padding: "4px 6px", textAlign: "right", fontFamily: "monospace" }}>
                       {today ? (
                         <span style={{
-                          display: "inline-block",
-                          background: color,
-                          color: "#fff",
-                          padding: "1px 6px",
+                          color: "#0F172A",
                           fontWeight: 700,
                           fontSize: "12px",
-                          minWidth: "70px",
-                          textAlign: "right",
                         }}>{formatKRW(today.price)}</span>
                       ) : <span style={{ color: "#9CA3AF" }}>-</span>}
                     </td>
