@@ -27,9 +27,9 @@ export default function ExecutivePage() {
   return (
     <div style={{ maxWidth: "440px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", paddingBottom: "6px", borderBottom: "1px solid #D0CECE" }}>
-        <Link href={`/projects/${id}`} style={{ color: "#4472C4", textDecoration: "none", fontSize: "12px" }}>← {project.name}</Link>
+        <Link href={`/projects/${id}`} style={{ color: "#4472C4", textDecoration: "none", fontSize: "14px" }}>← {project.name}</Link>
         <span style={{ color: "#D0CECE" }}>/</span>
-        <span style={{ fontWeight: 700, fontSize: "13px" }}>임원 상수 조정</span>
+        <span style={{ fontWeight: 700, fontSize: "14px" }}>임원 상수 조정</span>
       </div>
 
       <table className="xl-table" style={{ marginBottom: "10px" }}>
@@ -59,7 +59,7 @@ export default function ExecutivePage() {
         </tbody>
       </table>
 
-      <div style={{ padding: "6px 10px", background: "#FFF4CE", border: "1px solid #FFD700", fontSize: "11px", color: "#595959", marginBottom: "10px" }}>
+      <div style={{ padding: "6px 10px", background: "#FFF4CE", border: "1px solid #FFD700", fontSize: "14px", color: "#595959", marginBottom: "10px" }}>
         ⚠ 임원 상수는 1차 조정값에 가감됩니다. 음수 입력 시 차감됩니다.
       </div>
 

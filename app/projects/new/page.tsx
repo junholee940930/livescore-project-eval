@@ -68,7 +68,7 @@ export default function NewProject() {
 
   return (
     <div style={{ maxWidth: "680px" }}>
-      <div style={{ fontWeight: 700, fontSize: "13px", marginBottom: "12px", paddingBottom: "6px", borderBottom: "1px solid #D0CECE" }}>
+      <div style={{ fontWeight: 700, fontSize: "14px", marginBottom: "12px", paddingBottom: "6px", borderBottom: "1px solid #D0CECE" }}>
         프로젝트 등록
       </div>
 
@@ -104,7 +104,7 @@ export default function NewProject() {
                 <button className="xl-btn" onClick={handleAutoMatch} disabled={matching}>
                   {matching ? "AI 분석 중..." : "✨ AI로 화면 자동 매칭"}
                 </button>
-                {matchError && <span style={{ color: "#C00000", fontSize: "11px" }}>{matchError}</span>}
+                {matchError && <span style={{ color: "#C00000", fontSize: "14px" }}>{matchError}</span>}
               </div>
             </td>
           </tr>
@@ -132,7 +132,7 @@ export default function NewProject() {
                     </button>
                   ))}
                 </div>
-                <span style={{ fontSize: "11px", color: "#595959" }}>→ {season}</span>
+                <span style={{ fontSize: "14px", color: "#595959" }}>→ {season}</span>
               </div>
             </td>
           </tr>
@@ -141,7 +141,7 @@ export default function NewProject() {
             <td style={{ border: "1px solid #D0CECE", padding: "4px 8px" }}>
               <input type="number" min={0} className="xl-input" style={{ width: "120px", textAlign: "right" }}
                 value={pickCount} onChange={(e) => setPickCount(Number(e.target.value))} />
-              <span style={{ marginLeft: "6px", color: "#595959", fontSize: "11px" }}>건 (시즌 내)</span>
+              <span style={{ marginLeft: "6px", color: "#595959", fontSize: "14px" }}>건 (시즌 내)</span>
             </td>
           </tr>
           <tr>
@@ -149,7 +149,7 @@ export default function NewProject() {
             <td style={{ border: "1px solid #D0CECE", padding: "4px 8px" }}>
               <input type="number" min={0} className="xl-input" style={{ width: "120px", textAlign: "right" }}
                 value={giftCount} onChange={(e) => setGiftCount(Number(e.target.value))} />
-              <span style={{ marginLeft: "6px", color: "#AEAAAA", fontSize: "11px" }}>미정 화면 — 추후 입력</span>
+              <span style={{ marginLeft: "6px", color: "#AEAAAA", fontSize: "14px" }}>미정 화면 — 추후 입력</span>
             </td>
           </tr>
         </tbody>
@@ -158,12 +158,12 @@ export default function NewProject() {
       {/* 화면 선택 */}
       <div style={{ marginBottom: "10px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "4px" }}>
-          <span style={{ fontWeight: 700, fontSize: "12px" }}>
+          <span style={{ fontWeight: 700, fontSize: "14px" }}>
             적용 화면 선택 *
             {selectedIds.length > 0 && <span style={{ color: "#4472C4", marginLeft: "8px", fontWeight: 400 }}>{selectedIds.length}개 선택됨</span>}
           </span>
           {selectedIds.length > 0 && (
-            <button className="xl-btn" style={{ fontSize: "11px", padding: "2px 8px" }} onClick={() => setSelectedIds([])}>전체 해제</button>
+            <button className="xl-btn" style={{ fontSize: "14px", padding: "2px 8px" }} onClick={() => setSelectedIds([])}>전체 해제</button>
           )}
         </div>
 
@@ -173,7 +173,7 @@ export default function NewProject() {
             const checkedCount = screens.filter((s) => selectedIds.includes(s.id)).length;
             return (
               <div key={d1}>
-                <div style={{ background: "#D9E1F2", padding: "3px 8px", fontWeight: 700, fontSize: "11px", color: "#1F3864", borderBottom: "1px solid #D0CECE", display: "flex", justifyContent: "space-between" }}>
+                <div style={{ background: "#D9E1F2", padding: "3px 8px", fontWeight: 700, fontSize: "14px", color: "#1F3864", borderBottom: "1px solid #D0CECE", display: "flex", justifyContent: "space-between" }}>
                   <span>{d1}</span>
                   {checkedCount > 0 && <span style={{ color: "#4472C4" }}>{checkedCount}/{screens.length}</span>}
                 </div>
@@ -191,15 +191,15 @@ export default function NewProject() {
                         cursor: "pointer",
                         background: checked ? "#DDEEFF" : "transparent",
                         borderBottom: "1px solid #F0F0F0",
-                        fontSize: "12px",
+                        fontSize: "14px",
                       }}
                       onMouseEnter={(e) => { if (!checked) (e.currentTarget as HTMLLabelElement).style.background = "#F5F5F5"; }}
                       onMouseLeave={(e) => { if (!checked) (e.currentTarget as HTMLLabelElement).style.background = "transparent"; }}
                     >
                       <input type="checkbox" checked={checked} onChange={() => toggle(s.id)} style={{ accentColor: "#4472C4" }} />
                       <span>{label}</span>
-                      {s.hasPick && <span style={{ fontSize: "10px", background: "#E2EFDA", color: "#217346", padding: "1px 4px", border: "1px solid #A9C96A" }}>픽</span>}
-                      <span style={{ marginLeft: "auto", color: "#AEAAAA", fontSize: "11px", fontFamily: "monospace" }}>PV {(s.pvShare * 100).toFixed(1)}%</span>
+                      {s.hasPick && <span style={{ fontSize: "14px", background: "#E2EFDA", color: "#217346", padding: "1px 4px", border: "1px solid #A9C96A" }}>픽</span>}
+                      <span style={{ marginLeft: "auto", color: "#AEAAAA", fontSize: "14px", fontFamily: "monospace" }}>PV {(s.pvShare * 100).toFixed(1)}%</span>
                     </label>
                   );
                 })}

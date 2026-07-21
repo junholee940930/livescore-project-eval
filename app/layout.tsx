@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           display: "flex",
           alignItems: "center",
           gap: "12px",
-          fontSize: "13px",
+          fontSize: "14px",
           fontFamily: "'Malgun Gothic', '맑은 고딕', 'Consolas', monospace",
           borderBottom: "2px solid #00D4A4",
           userSelect: "none",
@@ -47,8 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span style={{ fontWeight: 700, letterSpacing: "0.05em", color: "#00D4A4" }}>
             LIVE스코어 PROJECT EXCHANGE
           </span>
-          <span style={{ color: "#4B9FEA", fontSize: "11px", fontWeight: 700, fontFamily: "monospace" }}>LPEX</span>
-          <div style={{ marginLeft: "auto", display: "flex", gap: "20px", fontSize: "11px", alignItems: "center" }}>
+          <span style={{ color: "#4B9FEA", fontSize: "14px", fontWeight: 700, fontFamily: "monospace" }}>LPEX</span>
+          <div style={{ marginLeft: "auto", display: "flex", gap: "20px", fontSize: "14px", alignItems: "center" }}>
             <span style={{ color: "#6B7280" }}>실시간 프로젝트 주식시장</span>
             <span className="live-dot" style={{ color: "#00D4A4", fontFamily: "monospace", display: "flex", alignItems: "center", gap: "4px" }}>
               ● LIVE

@@ -28,7 +28,7 @@ export default function Nav() {
                 alignItems: "center",
                 gap: "5px",
                 padding: "6px 14px",
-                fontSize: "12px",
+                fontSize: "14px",
                 fontFamily: "'Malgun Gothic', '맑은 고딕', monospace",
                 textDecoration: "none",
                 background: isActive ? "#F8FAFC" : "#161B22",
@@ -43,7 +43,7 @@ export default function Nav() {
                 transition: "color 0.15s",
               }}
             >
-              <span style={{ fontSize: "11px" }}>{t.icon}</span>
+              <span style={{ fontSize: "14px" }}>{t.icon}</span>
               {t.label}
             </Link>
           );

@@ -74,18 +74,18 @@ export default function ProjectDetail() {
 
       {/* 브레드크럼 */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px", paddingBottom: "10px", borderBottom: "2px solid #0D1F3C" }}>
-        <Link href="/" style={{ color: "#3A7BD5", textDecoration: "none", fontSize: "12px", fontWeight: 600 }}>← 시장현황</Link>
+        <Link href="/" style={{ color: "#3A7BD5", textDecoration: "none", fontSize: "14px", fontWeight: 600 }}>← 시장현황</Link>
         <span style={{ color: "#CBD5E1" }}>/</span>
         <span style={{ fontWeight: 700, fontSize: "14px" }}>{project.name}</span>
-        {project.excelId && <span style={{ color: "#94A3B8", fontSize: "11px" }}>({project.excelId})</span>}
+        {project.excelId && <span style={{ color: "#94A3B8", fontSize: "14px" }}>({project.excelId})</span>}
         {project.status && (
-          <span style={{ background: "#EFF6FF", color: "#3A7BD5", fontSize: "11px", padding: "2px 8px", border: "1px solid #BFDBFE", fontWeight: 600, borderRadius: "3px" }}>
+          <span style={{ background: "#EFF6FF", color: "#3A7BD5", fontSize: "14px", padding: "2px 8px", border: "1px solid #BFDBFE", fontWeight: 600, borderRadius: "3px" }}>
             {project.status}
           </span>
         )}
         <div style={{ marginLeft: "auto", display: "flex", gap: "6px" }}>
           <Link href="/score/bulk">
-            <button style={{ padding: "5px 12px", fontSize: "12px", border: "1px solid #CBD5E1", background: "white", cursor: "pointer", borderRadius: "4px" }}>
+            <button style={{ padding: "5px 12px", fontSize: "14px", border: "1px solid #CBD5E1", background: "white", cursor: "pointer", borderRadius: "4px" }}>
               평가 입력
             </button>
           </Link>
@@ -104,15 +104,15 @@ export default function ProjectDetail() {
         {/* 헤더 */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "16px" }}>
           <div>
-            <div style={{ fontSize: "11px", color: "#6B7280", marginBottom: "4px", letterSpacing: "0.05em" }}>LPEX · {project.season}</div>
+            <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "4px", letterSpacing: "0.05em" }}>LPEX · {project.season}</div>
             <div style={{ fontSize: "22px", fontWeight: 700, color: priceColor, fontFamily: "monospace" }}>
               {todayP ? formatKRW(todayP.price) : "-"}
             </div>
             <div style={{ display: "flex", gap: "12px", marginTop: "4px" }}>
-              <span style={{ fontSize: "13px", fontFamily: "monospace", color: priceColor }}>
+              <span style={{ fontSize: "14px", fontFamily: "monospace", color: priceColor }}>
                 {todayP?.changePct !== undefined ? (todayP.changePct >= 0 ? "▲" : "▼") + " " + Math.abs(todayP.changePct).toFixed(2) + "%" : ""}
               </span>
-              <span style={{ fontSize: "13px", fontFamily: "monospace", color: priceColor }}>
+              <span style={{ fontSize: "14px", fontFamily: "monospace", color: priceColor }}>
                 {todayP?.change !== undefined ? (todayP.change >= 0 ? "+" : "") + todayP.change.toLocaleString("ko-KR") + "원" : ""}
               </span>
             </div>
@@ -120,7 +120,7 @@ export default function ProjectDetail() {
           <div style={{ display: "flex", flexDirection: "column", gap: "6px", minWidth: "300px" }}>
             {/* 주가 구성 인자 */}
             <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: "4px", padding: "8px 12px" }}>
-              <div style={{ fontSize: "10px", color: "#6B7280", marginBottom: "6px", letterSpacing: "0.05em" }}>주가 보정 인자</div>
+              <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "6px", letterSpacing: "0.05em" }}>주가 보정 인자</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                 {/* 평가금 */}
                 <PriceFactorRow
@@ -146,8 +146,8 @@ export default function ProjectDetail() {
                 />
                 {/* 구분선 */}
                 <div style={{ borderTop: "1px solid #21262D", paddingTop: "4px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: "10px", color: "#6B7280" }}>현재 주가 기준가</span>
-                  <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#00D4A4", fontSize: "13px" }}>
+                  <span style={{ fontSize: "14px", color: "#6B7280" }}>현재 주가 기준가</span>
+                  <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#00D4A4", fontSize: "14px" }}>
                     {formatKRW(Math.round(stockPrice))}
                   </span>
                 </div>
@@ -156,12 +156,12 @@ export default function ProjectDetail() {
             {/* 고저가 */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
               <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: "4px", padding: "8px 10px" }}>
-                <div style={{ fontSize: "10px", color: "#6B7280", marginBottom: "3px" }}>60일 고가</div>
-                <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "12px", color: "#F87171" }}>{formatKRW(highPrice)}</div>
+                <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "3px" }}>60일 고가</div>
+                <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "14px", color: "#F87171" }}>{formatKRW(highPrice)}</div>
               </div>
               <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: "4px", padding: "8px 10px" }}>
-                <div style={{ fontSize: "10px", color: "#6B7280", marginBottom: "3px" }}>60일 저가</div>
-                <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "12px", color: "#00D4A4" }}>{formatKRW(lowPrice)}</div>
+                <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "3px" }}>60일 저가</div>
+                <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "14px", color: "#00D4A4" }}>{formatKRW(lowPrice)}</div>
               </div>
             </div>
           </div>
@@ -197,8 +197,8 @@ export default function ProjectDetail() {
               />
             </svg>
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "4px" }}>
-              <span style={{ fontSize: "10px", color: "#4B5563" }}>{history[0]?.date}</span>
-              <span style={{ fontSize: "10px", color: "#4B5563" }}>오늘 ({history[history.length - 1]?.date})</span>
+              <span style={{ fontSize: "14px", color: "#4B5563" }}>{history[0]?.date}</span>
+              <span style={{ fontSize: "14px", color: "#4B5563" }}>오늘 ({history[history.length - 1]?.date})</span>
             </div>
           </div>
         )}
@@ -219,8 +219,8 @@ export default function ProjectDetail() {
               { label: "최종 평가금", value: formatKRW(Math.round(result.final)), color: "#0D1F3C", bg: "#DBEAFE", bold: true },
             ].map((c) => (
               <div key={c.label} style={{ border: `1px solid ${c.bg ? "#93C5FD" : "#E2E8F0"}`, background: c.bg ?? "#F8FAFC", padding: "8px 10px", borderRadius: "4px" }}>
-                <div style={{ fontSize: "10px", color: "#64748B", marginBottom: "3px" }}>{c.label}</div>
-                <div style={{ fontFamily: "monospace", fontWeight: c.bold ? 700 : 600, fontSize: "13px", color: c.color }}>{c.value}</div>
+                <div style={{ fontSize: "14px", color: "#64748B", marginBottom: "3px" }}>{c.label}</div>
+                <div style={{ fontFamily: "monospace", fontWeight: c.bold ? 700 : 600, fontSize: "14px", color: c.color }}>{c.value}</div>
               </div>
             ))}
           </div>
@@ -251,8 +251,8 @@ export default function ProjectDetail() {
 
           {/* 광고 소계 */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 12px", background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "3px" }}>
-            <span style={{ fontSize: "12px", color: "#1E40AF", fontWeight: 600 }}>광고매출 소계 (① + ②)</span>
-            <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#3A7BD5", fontSize: "13px" }}>{formatKRW(Math.round(result.adRevenue))}</span>
+            <span style={{ fontSize: "14px", color: "#1E40AF", fontWeight: 600 }}>광고매출 소계 (① + ②)</span>
+            <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#3A7BD5", fontSize: "14px" }}>{formatKRW(Math.round(result.adRevenue))}</span>
           </div>
 
           <FormulaBlock title="③ 픽매출 기여" result={formatKRW(Math.round(result.pickRevenue))}>
@@ -282,7 +282,7 @@ export default function ProjectDetail() {
 
           {/* 기본값 합계 */}
           <div style={{ border: "2px solid #3A7BD5", background: "#EFF6FF", borderRadius: "4px", padding: "10px 14px", display: "flex", justifyContent: "space-between" }}>
-            <span style={{ fontWeight: 700, color: "#1E40AF", fontSize: "12px" }}>기본값 합계 = (①+②) + ③ + ④ + ⑤</span>
+            <span style={{ fontWeight: 700, color: "#1E40AF", fontSize: "14px" }}>기본값 합계 = (①+②) + ③ + ④ + ⑤</span>
             <span style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "15px", color: "#1E40AF" }}>{formatKRW(Math.round(result.totalBase))}</span>
           </div>
 
@@ -301,7 +301,7 @@ export default function ProjectDetail() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px" }}>
               <div>
                 <div style={{ fontWeight: 700, color: "#065F46", fontSize: "14px" }}>최종 평가금 (시가총액)</div>
-                <div style={{ fontSize: "11px", color: "#059669", marginTop: "2px" }}>
+                <div style={{ fontSize: "14px", color: "#059669", marginTop: "2px" }}>
                   {formatKRW(Math.round(result.afterScore))} {result.executiveAdj >= 0 ? "+" : ""} {formatKRW(result.executiveAdj)}
                 </div>
               </div>
@@ -331,16 +331,16 @@ export default function ProjectDetail() {
                 {/* 헤더: 종목코드 + 현재가 */}
                 <div style={{ background: "#161B22", borderBottom: "1px solid #21262D", padding: "8px 12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <div>
-                    <span style={{ fontSize: "10px", color: "#4B9FEA", fontFamily: "monospace", fontWeight: 700, letterSpacing: "0.05em" }}>
+                    <span style={{ fontSize: "14px", color: "#4B9FEA", fontFamily: "monospace", fontWeight: 700, letterSpacing: "0.05em" }}>
                       {safeProject.excelId ?? "PRJ"}
                     </span>
-                    <span style={{ fontSize: "11px", color: "#8B949E", marginLeft: "8px" }}>{safeProject.name.slice(0, 16)}{safeProject.name.length > 16 ? "…" : ""}</span>
+                    <span style={{ fontSize: "14px", color: "#8B949E", marginLeft: "8px" }}>{safeProject.name.slice(0, 16)}{safeProject.name.length > 16 ? "…" : ""}</span>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontSize: "16px", fontWeight: 700, color: priceColor, fontFamily: "monospace", letterSpacing: "-0.02em" }}>
                       {todayP ? todayP.price.toLocaleString("ko-KR") : stockPrice.toLocaleString("ko-KR")}
                     </div>
-                    <div style={{ fontSize: "10px", color: priceColor }}>
+                    <div style={{ fontSize: "14px", color: priceColor }}>
                       {todayP ? `${todayP.changePct >= 0 ? "▲" : "▼"} ${Math.abs(todayP.changePct).toFixed(2)}%` : ""}
                     </div>
                   </div>
@@ -354,8 +354,8 @@ export default function ProjectDetail() {
                     { label: "잔여주", value: remaining === 0 ? "매진" : `${remaining}주`, color: remaining === 0 ? "#6B7280" : "#00D4A4" },
                   ].map(({ label, value, color }) => (
                     <div key={label} style={{ padding: "7px 10px", borderRight: "1px solid #21262D" }}>
-                      <div style={{ fontSize: "9px", color: "#6B7280", marginBottom: "2px" }}>{label}</div>
-                      <div style={{ fontSize: "12px", fontWeight: 700, color, fontFamily: "monospace" }}>{value}</div>
+                      <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "2px" }}>{label}</div>
+                      <div style={{ fontSize: "14px", fontWeight: 700, color, fontFamily: "monospace" }}>{value}</div>
                     </div>
                   ))}
                 </div>
@@ -367,19 +367,19 @@ export default function ProjectDetail() {
 
                 {/* 매수 주문 폼 */}
                 <div style={{ padding: "12px" }}>
-                  <div style={{ fontSize: "10px", color: "#4B9FEA", fontWeight: 700, marginBottom: "10px", letterSpacing: "0.08em" }}>▶ 매수 주문</div>
+                  <div style={{ fontSize: "14px", color: "#4B9FEA", fontWeight: 700, marginBottom: "10px", letterSpacing: "0.08em" }}>▶ 매수 주문</div>
 
                   {/* 주문 유형 탭 */}
                   <div style={{ display: "flex", gap: "4px", marginBottom: "10px" }}>
                     {["시장가"].map((t) => (
-                      <div key={t} style={{ padding: "3px 10px", fontSize: "11px", background: "#E53935", color: "#fff", borderRadius: "2px", fontWeight: 700 }}>{t}</div>
+                      <div key={t} style={{ padding: "3px 10px", fontSize: "14px", background: "#E53935", color: "#fff", borderRadius: "2px", fontWeight: 700 }}>{t}</div>
                     ))}
-                    <div style={{ padding: "3px 10px", fontSize: "11px", background: "#21262D", color: "#6B7280", borderRadius: "2px" }}>지정가</div>
+                    <div style={{ padding: "3px 10px", fontSize: "14px", background: "#21262D", color: "#6B7280", borderRadius: "2px" }}>지정가</div>
                   </div>
 
                   {/* 구매자 */}
                   <div style={{ marginBottom: "8px" }}>
-                    <div style={{ fontSize: "10px", color: "#6B7280", marginBottom: "3px" }}>구매자</div>
+                    <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "3px" }}>구매자</div>
                     <input
                       placeholder="이름 입력"
                       value={buyerName}
@@ -387,7 +387,7 @@ export default function ProjectDetail() {
                       disabled={remaining === 0}
                       style={{
                         width: "100%", padding: "6px 8px", background: "#0D1F3C", border: "1px solid #30363D",
-                        color: "#E6EDF3", fontSize: "12px", outline: "none", boxSizing: "border-box",
+                        color: "#E6EDF3", fontSize: "14px", outline: "none", boxSizing: "border-box",
                         borderRadius: "2px",
                       }}
                     />
@@ -396,8 +396,8 @@ export default function ProjectDetail() {
                   {/* 수량 */}
                   <div style={{ marginBottom: "8px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px" }}>
-                      <span style={{ fontSize: "10px", color: "#6B7280" }}>수량</span>
-                      <span style={{ fontSize: "10px", color: "#6B7280" }}>최대 {remaining}주</span>
+                      <span style={{ fontSize: "14px", color: "#6B7280" }}>수량</span>
+                      <span style={{ fontSize: "14px", color: "#6B7280" }}>최대 {remaining}주</span>
                     </div>
                     <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
                       <button
@@ -411,7 +411,7 @@ export default function ProjectDetail() {
                         disabled={remaining === 0}
                         style={{
                           flex: 1, padding: "6px 8px", background: "#0D1F3C", border: "1px solid #30363D",
-                          color: "#E6EDF3", fontSize: "13px", fontFamily: "monospace", textAlign: "right",
+                          color: "#E6EDF3", fontSize: "14px", fontFamily: "monospace", textAlign: "right",
                           outline: "none", borderRadius: "2px",
                         }}
                       />
@@ -425,7 +425,7 @@ export default function ProjectDetail() {
                     <div style={{ display: "flex", gap: "3px", marginTop: "4px" }}>
                       {[1, 5, 10, remaining].filter((v, i, arr) => arr.indexOf(v) === i && v > 0 && v <= remaining).map((n) => (
                         <button key={n} onClick={() => setBuyQty(n)}
-                          style={{ flex: 1, padding: "3px", fontSize: "10px", background: buyQty === n ? "#1C3A6B" : "#161B22", border: `1px solid ${buyQty === n ? "#4B9FEA" : "#21262D"}`, color: buyQty === n ? "#4B9FEA" : "#6B7280", cursor: "pointer", borderRadius: "2px" }}>
+                          style={{ flex: 1, padding: "3px", fontSize: "14px", background: buyQty === n ? "#1C3A6B" : "#161B22", border: `1px solid ${buyQty === n ? "#4B9FEA" : "#21262D"}`, color: buyQty === n ? "#4B9FEA" : "#6B7280", cursor: "pointer", borderRadius: "2px" }}>
                           {n === remaining ? "최대" : `+${n}`}
                         </button>
                       ))}
@@ -435,15 +435,15 @@ export default function ProjectDetail() {
                   {/* 주문 금액 요약 */}
                   <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: "2px", padding: "8px 10px", marginBottom: "10px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                      <span style={{ fontSize: "10px", color: "#6B7280" }}>단가</span>
-                      <span style={{ fontSize: "11px", fontFamily: "monospace", color: "#E6EDF3" }}>{formatKRW(sharePrice)}</span>
+                      <span style={{ fontSize: "14px", color: "#6B7280" }}>단가</span>
+                      <span style={{ fontSize: "14px", fontFamily: "monospace", color: "#E6EDF3" }}>{formatKRW(sharePrice)}</span>
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                      <span style={{ fontSize: "10px", color: "#6B7280" }}>수량</span>
-                      <span style={{ fontSize: "11px", fontFamily: "monospace", color: "#E6EDF3" }}>{buyQty}주</span>
+                      <span style={{ fontSize: "14px", color: "#6B7280" }}>수량</span>
+                      <span style={{ fontSize: "14px", fontFamily: "monospace", color: "#E6EDF3" }}>{buyQty}주</span>
                     </div>
                     <div style={{ borderTop: "1px solid #21262D", paddingTop: "6px", marginTop: "4px", display: "flex", justifyContent: "space-between" }}>
-                      <span style={{ fontSize: "11px", color: "#E6EDF3", fontWeight: 700 }}>주문금액</span>
+                      <span style={{ fontSize: "14px", color: "#E6EDF3", fontWeight: 700 }}>주문금액</span>
                       <span style={{ fontSize: "14px", fontFamily: "monospace", fontWeight: 700, color: "#E53935" }}>{formatKRW(totalAmt)}</span>
                     </div>
                   </div>
@@ -458,7 +458,7 @@ export default function ProjectDetail() {
                     }}
                     disabled={!canSubmit}
                     style={{
-                      width: "100%", padding: "10px", fontSize: "13px", fontWeight: 700,
+                      width: "100%", padding: "10px", fontSize: "14px", fontWeight: 700,
                       background: canSubmit ? "linear-gradient(180deg,#E53935 0%,#B71C1C 100%)" : "#1C1C1C",
                       color: canSubmit ? "#fff" : "#4B4B4B",
                       border: canSubmit ? "1px solid #E53935" : "1px solid #2D2D2D",
@@ -473,19 +473,19 @@ export default function ProjectDetail() {
                 {/* 체결 내역 */}
                 {purchases.length > 0 && (
                   <div style={{ borderTop: "1px solid #21262D" }}>
-                    <div style={{ padding: "6px 12px", background: "#161B22", fontSize: "10px", color: "#6B7280", fontWeight: 700, letterSpacing: "0.06em" }}>
+                    <div style={{ padding: "6px 12px", background: "#161B22", fontSize: "14px", color: "#6B7280", fontWeight: 700, letterSpacing: "0.06em" }}>
                       체결 내역 ({purchases.length}건 · {soldQty}주)
                     </div>
                     <div style={{ maxHeight: "140px", overflowY: "auto" }}>
                       {[...purchases].reverse().map((pu) => (
                         <div key={pu.id} style={{ display: "flex", alignItems: "center", padding: "5px 12px", borderBottom: "1px solid #161B22", gap: "6px" }}>
-                          <div style={{ flex: 1, fontSize: "11px", color: "#C9D1D9", fontWeight: 600 }}>{pu.buyerName}</div>
-                          <div style={{ fontSize: "11px", color: "#E53935", fontFamily: "monospace", fontWeight: 700 }}>{pu.qty}주</div>
-                          <div style={{ fontSize: "11px", color: "#8B949E", fontFamily: "monospace" }}>{formatKRW(pu.pricePerShare)}</div>
-                          <div style={{ fontSize: "11px", color: "#E6EDF3", fontFamily: "monospace", fontWeight: 700 }}>{formatKRW(pu.qty * pu.pricePerShare)}</div>
+                          <div style={{ flex: 1, fontSize: "14px", color: "#C9D1D9", fontWeight: 600 }}>{pu.buyerName}</div>
+                          <div style={{ fontSize: "14px", color: "#E53935", fontFamily: "monospace", fontWeight: 700 }}>{pu.qty}주</div>
+                          <div style={{ fontSize: "14px", color: "#8B949E", fontFamily: "monospace" }}>{formatKRW(pu.pricePerShare)}</div>
+                          <div style={{ fontSize: "14px", color: "#E6EDF3", fontFamily: "monospace", fontWeight: 700 }}>{formatKRW(pu.qty * pu.pricePerShare)}</div>
                           <button
                             onClick={() => updateProject(safeProject.id, { purchases: purchases.filter((p) => p.id !== pu.id) })}
-                            style={{ fontSize: "10px", color: "#484F58", background: "none", border: "none", cursor: "pointer", padding: "0 2px" }}
+                            style={{ fontSize: "14px", color: "#484F58", background: "none", border: "none", cursor: "pointer", padding: "0 2px" }}
                           >✕</button>
                         </div>
                       ))}
@@ -500,10 +500,10 @@ export default function ProjectDetail() {
           <SidePanel title="📊 주주 현황 (지분율 · 투자금)">
             {/* 주주 리스트 */}
             {project.collaborators.length === 0 ? (
-              <div style={{ textAlign: "center", padding: "16px", color: "#94A3B8", fontSize: "12px" }}>주주 없음</div>
+              <div style={{ textAlign: "center", padding: "16px", color: "#94A3B8", fontSize: "14px" }}>주주 없음</div>
             ) : (
               <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                   <thead>
                     <tr style={{ background: "#F1F5F9" }}>
                       {["이름", "역할", "스킬값", "지분율", "투자금", "수령예정액", "수익률", ""].map((h) => (
@@ -533,7 +533,7 @@ export default function ProjectDetail() {
                           </td>
                           <td style={{ padding: "5px 6px", textAlign: "center" }}>
                             <button onClick={() => removeCollaborator(c.id)}
-                              style={{ fontSize: "10px", color: "#F87171", background: "none", border: "none", cursor: "pointer" }}>✕</button>
+                              style={{ fontSize: "14px", color: "#F87171", background: "none", border: "none", cursor: "pointer" }}>✕</button>
                           </td>
                         </tr>
                       );
@@ -548,7 +548,7 @@ export default function ProjectDetail() {
               {!showAddCollab ? (
                 <button
                   onClick={() => setShowAddCollab(true)}
-                  style={{ width: "100%", padding: "6px", fontSize: "12px", border: "1px dashed #CBD5E1", background: "#F8FAFC", cursor: "pointer", color: "#374151", borderRadius: "3px" }}
+                  style={{ width: "100%", padding: "6px", fontSize: "14px", border: "1px dashed #CBD5E1", background: "#F8FAFC", cursor: "pointer", color: "#374151", borderRadius: "3px" }}
                 >
                   + 주주 추가
                 </button>
@@ -556,37 +556,37 @@ export default function ProjectDetail() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5px" }}>
                     <input placeholder="이름" value={newCollab.name} onChange={(e) => setNewCollab((p) => ({ ...p, name: e.target.value }))}
-                      style={{ padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "12px", borderRadius: "3px" }} />
+                      style={{ padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "14px", borderRadius: "3px" }} />
                     <input placeholder="역할" value={newCollab.role} onChange={(e) => setNewCollab((p) => ({ ...p, role: e.target.value }))}
-                      style={{ padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "12px", borderRadius: "3px" }} />
+                      style={{ padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "14px", borderRadius: "3px" }} />
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "5px" }}>
                     <div>
-                      <div style={{ fontSize: "10px", color: "#64748B", marginBottom: "2px" }}>지분율(%)</div>
+                      <div style={{ fontSize: "14px", color: "#64748B", marginBottom: "2px" }}>지분율(%)</div>
                       <input type="number" min={0} max={100} step={0.1} value={newCollab.equityPct}
                         onChange={(e) => setNewCollab((p) => ({ ...p, equityPct: Number(e.target.value) }))}
-                        style={{ width: "100%", padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "12px", borderRadius: "3px" }} />
+                        style={{ width: "100%", padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "14px", borderRadius: "3px" }} />
                     </div>
                     <div>
-                      <div style={{ fontSize: "10px", color: "#64748B", marginBottom: "2px" }}>투자금(원)</div>
+                      <div style={{ fontSize: "14px", color: "#64748B", marginBottom: "2px" }}>투자금(원)</div>
                       <input type="number" min={0} value={newCollab.investmentAmount}
                         onChange={(e) => setNewCollab((p) => ({ ...p, investmentAmount: Number(e.target.value) }))}
-                        style={{ width: "100%", padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "12px", borderRadius: "3px" }} />
+                        style={{ width: "100%", padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "14px", borderRadius: "3px" }} />
                     </div>
                     <div>
-                      <div style={{ fontSize: "10px", color: "#64748B", marginBottom: "2px" }}>스킬값(원)</div>
+                      <div style={{ fontSize: "14px", color: "#64748B", marginBottom: "2px" }}>스킬값(원)</div>
                       <input type="number" min={0} value={newCollab.skillValue}
                         onChange={(e) => setNewCollab((p) => ({ ...p, skillValue: Number(e.target.value) }))}
-                        style={{ width: "100%", padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "12px", borderRadius: "3px" }} />
+                        style={{ width: "100%", padding: "4px 6px", border: "1px solid #CBD5E1", fontSize: "14px", borderRadius: "3px" }} />
                     </div>
                   </div>
                   <div style={{ display: "flex", gap: "5px" }}>
                     <button onClick={addCollaborator}
-                      style={{ flex: 1, padding: "5px", fontSize: "12px", background: "#0D1F3C", color: "white", border: "none", cursor: "pointer", borderRadius: "3px", fontWeight: 700 }}>
+                      style={{ flex: 1, padding: "5px", fontSize: "14px", background: "#0D1F3C", color: "white", border: "none", cursor: "pointer", borderRadius: "3px", fontWeight: 700 }}>
                       추가
                     </button>
                     <button onClick={() => setShowAddCollab(false)}
-                      style={{ padding: "5px 10px", fontSize: "12px", background: "#F1F5F9", border: "1px solid #CBD5E1", cursor: "pointer", borderRadius: "3px" }}>
+                      style={{ padding: "5px 10px", fontSize: "14px", background: "#F1F5F9", border: "1px solid #CBD5E1", cursor: "pointer", borderRadius: "3px" }}>
                       취소
                     </button>
                   </div>
@@ -598,7 +598,7 @@ export default function ProjectDetail() {
           {/* 평가점수 */}
           <SidePanel title="📋 평가점수 (무기명)">
             {scoreCount === 0 ? (
-              <div style={{ textAlign: "center", padding: "20px", color: "#94A3B8", fontSize: "12px" }}>
+              <div style={{ textAlign: "center", padding: "20px", color: "#94A3B8", fontSize: "14px" }}>
                 입력된 점수 없음 — 100점 기본 적용
               </div>
             ) : (
@@ -613,13 +613,13 @@ export default function ProjectDetail() {
                     const avg = scoreCount > 0 ? scoreEntries.reduce((s, [, cs]) => s + cs[c.key as keyof typeof cs], 0) / scoreCount : 0;
                     return (
                       <div key={c.key} style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "5px" }}>
-                        <div style={{ width: "88px", fontSize: "11px", color: "#64748B", flexShrink: 0 }}>
+                        <div style={{ width: "88px", fontSize: "14px", color: "#64748B", flexShrink: 0 }}>
                           {c.label}<span style={{ color: "#3A7BD5", marginLeft: "3px" }}>×{(c.weight * 100).toFixed(0)}%</span>
                         </div>
                         <div style={{ flex: 1, height: "8px", background: "#E2E8F0", borderRadius: "2px" }}>
                           <div style={{ width: `${Math.min(100, avg)}%`, height: "100%", background: "#3A7BD5", borderRadius: "2px" }} />
                         </div>
-                        <div style={{ width: "38px", textAlign: "right", fontFamily: "monospace", fontSize: "11px", fontWeight: 700 }}>{avg.toFixed(1)}점</div>
+                        <div style={{ width: "38px", textAlign: "right", fontFamily: "monospace", fontSize: "14px", fontWeight: 700 }}>{avg.toFixed(1)}점</div>
                       </div>
                     );
                   })}
@@ -630,7 +630,7 @@ export default function ProjectDetail() {
 
           {/* 프로젝트 정보 */}
           <SidePanel title="ℹ️ 종목 정보">
-            <div style={{ display: "grid", gridTemplateColumns: "80px 1fr", fontSize: "12px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "80px 1fr", fontSize: "14px" }}>
               {[
                 ["PM", project.pm ?? "-"],
                 ["시즌", project.season],
@@ -640,8 +640,8 @@ export default function ProjectDetail() {
                 ["UV 점유율", (result.totalUVShare * 100).toFixed(4) + "%"],
               ].map(([k, v]) => (
                 <>
-                  <div key={"k" + k} style={{ background: "#F8FAFC", padding: "5px 8px", borderBottom: "1px solid #E2E8F0", borderRight: "1px solid #E2E8F0", fontWeight: 600, color: "#64748B", fontSize: "11px" }}>{k}</div>
-                  <div key={"v" + k} style={{ padding: "5px 8px", borderBottom: "1px solid #E2E8F0", fontSize: "11px" }}>{v}</div>
+                  <div key={"k" + k} style={{ background: "#F8FAFC", padding: "5px 8px", borderBottom: "1px solid #E2E8F0", borderRight: "1px solid #E2E8F0", fontWeight: 600, color: "#64748B", fontSize: "14px" }}>{k}</div>
+                  <div key={"v" + k} style={{ padding: "5px 8px", borderBottom: "1px solid #E2E8F0", fontSize: "14px" }}>{v}</div>
                 </>
               ))}
             </div>
@@ -670,7 +670,7 @@ export default function ProjectDetail() {
 function SidePanel({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ border: "1px solid #E2E8F0", borderRadius: "6px", overflow: "hidden" }}>
-      <div style={{ background: "#0D1F3C", color: "white", padding: "7px 12px", fontWeight: 700, fontSize: "12px" }}>
+      <div style={{ background: "#0D1F3C", color: "white", padding: "7px 12px", fontWeight: 700, fontSize: "14px" }}>
         {title}
       </div>
       {children}
@@ -681,8 +681,8 @@ function SidePanel({ title, children }: { title: string; children: React.ReactNo
 function MiniStat({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
     <div style={{ textAlign: "center", background: "#F8FAFC", border: "1px solid #E2E8F0", padding: "6px", borderRadius: "3px" }}>
-      <div style={{ fontSize: "10px", color: "#94A3B8", marginBottom: "2px" }}>{label}</div>
-      <div style={{ fontFamily: "monospace", fontWeight: 700, color: color ?? "#374151", fontSize: "13px" }}>{value}</div>
+      <div style={{ fontSize: "14px", color: "#94A3B8", marginBottom: "2px" }}>{label}</div>
+      <div style={{ fontFamily: "monospace", fontWeight: 700, color: color ?? "#374151", fontSize: "14px" }}>{value}</div>
     </div>
   );
 }
@@ -691,8 +691,8 @@ function FormulaBlock({ title, result, children }: { title: string; result: stri
   return (
     <div style={{ border: "1px solid #E2E8F0", borderRadius: "4px", overflow: "hidden" }}>
       <div style={{ background: "#F8FAFC", borderBottom: "1px solid #E2E8F0", padding: "5px 10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontWeight: 700, fontSize: "12px", color: "#0F172A" }}>{title}</span>
-        <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#3A7BD5", fontSize: "12px" }}>{result}</span>
+        <span style={{ fontWeight: 700, fontSize: "14px", color: "#0F172A" }}>{title}</span>
+        <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#3A7BD5", fontSize: "14px" }}>{result}</span>
       </div>
       <div style={{ padding: "6px 0" }}>{children}</div>
     </div>
@@ -701,7 +701,7 @@ function FormulaBlock({ title, result, children }: { title: string; result: stri
 
 function FormulaRow({ label, formula }: { label: string; formula: string }) {
   return (
-    <div style={{ display: "flex", gap: "0", borderBottom: "1px solid #F1F5F9", fontSize: "11px" }}>
+    <div style={{ display: "flex", gap: "0", borderBottom: "1px solid #F1F5F9", fontSize: "14px" }}>
       <div style={{ width: "70px", background: "#F8FAFC", padding: "3px 10px", color: "#64748B", fontWeight: 600, flexShrink: 0, borderRight: "1px solid #E2E8F0" }}>{label}</div>
       <div style={{ padding: "3px 10px", fontFamily: "monospace", color: "#374151", wordBreak: "break-all" }}>{formula}</div>
     </div>
@@ -712,10 +712,10 @@ function BreakdownTable({ rows }: { rows: [string, string, string][] }) {
   return (
     <div style={{ margin: "4px 10px", border: "1px solid #E2E8F0", borderRadius: "3px" }}>
       {rows.map(([k, v, note], i) => (
-        <div key={i} style={{ display: "flex", borderBottom: i < rows.length - 1 ? "1px solid #F1F5F9" : "none", fontSize: "11px" }}>
+        <div key={i} style={{ display: "flex", borderBottom: i < rows.length - 1 ? "1px solid #F1F5F9" : "none", fontSize: "14px" }}>
           <div style={{ width: "150px", padding: "3px 8px", color: "#64748B", flexShrink: 0, borderRight: "1px solid #E2E8F0" }}>{k}</div>
           <div style={{ padding: "3px 8px", fontFamily: "monospace", fontWeight: 600, minWidth: "100px", borderRight: "1px solid #E2E8F0" }}>{v}</div>
-          <div style={{ padding: "3px 8px", color: "#94A3B8", fontSize: "10px", flex: 1 }}>{note}</div>
+          <div style={{ padding: "3px 8px", color: "#94A3B8", fontSize: "14px", flex: 1 }}>{note}</div>
         </div>
       ))}
     </div>
@@ -728,14 +728,14 @@ function PriceFactorRow({ label, value, multiplier, color, note }: {
   const barWidth = multiplier != null ? Math.min(100, multiplier * 80) : 100;
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <div style={{ width: "110px", fontSize: "10px", color: "#9CA3AF", flexShrink: 0 }}>{label}</div>
+      <div style={{ width: "110px", fontSize: "14px", color: "#9CA3AF", flexShrink: 0 }}>{label}</div>
       {multiplier != null && (
         <div style={{ flex: 1, height: "4px", background: "#21262D", borderRadius: "2px" }}>
           <div style={{ width: `${barWidth}%`, height: "100%", background: color, borderRadius: "2px", transition: "width 0.3s" }} />
         </div>
       )}
-      <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "11px", color, flexShrink: 0 }}>{value}</div>
-      {note && <div style={{ fontSize: "10px", color: "#6B7280" }}>{note}</div>}
+      <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "14px", color, flexShrink: 0 }}>{value}</div>
+      {note && <div style={{ fontSize: "14px", color: "#6B7280" }}>{note}</div>}
     </div>
   );
 }
@@ -759,9 +759,9 @@ function ScreenAssignPanel({
     <div style={{ border: "1px solid #E2E8F0", borderRadius: "6px", overflow: "hidden" }}>
       {/* 패널 헤더 */}
       <div style={{ background: "#0D1F3C", color: "white", padding: "7px 12px", display: "flex", alignItems: "center", gap: "8px" }}>
-        <span style={{ fontWeight: 700, fontSize: "12px" }}>🖥️ 화면 배정</span>
-        <span style={{ fontSize: "11px", color: "#94A3B8" }}>({screenIds.length}개 선택)</span>
-        <div style={{ marginLeft: "auto", display: "flex", gap: "12px", fontSize: "11px", fontFamily: "monospace" }}>
+        <span style={{ fontWeight: 700, fontSize: "14px" }}>🖥️ 화면 배정</span>
+        <span style={{ fontSize: "14px", color: "#94A3B8" }}>({screenIds.length}개 선택)</span>
+        <div style={{ marginLeft: "auto", display: "flex", gap: "12px", fontSize: "14px", fontFamily: "monospace" }}>
           <span style={{ color: "#00D4A4" }}>PV {(totalPVShare * 100).toFixed(1)}%</span>
           <span style={{ color: "#3A7BD5" }}>UV {(totalUVShare * 100).toFixed(2)}%</span>
         </div>
@@ -799,11 +799,11 @@ function ScreenAssignPanel({
                   borderRadius: "2px", background: allChecked ? "#3A7BD5" : groupChecked > 0 ? "#BFDBFE" : "white",
                   flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
-                  {allChecked && <span style={{ color: "white", fontSize: "9px", fontWeight: 700 }}>✓</span>}
-                  {!allChecked && groupChecked > 0 && <span style={{ color: "#3A7BD5", fontSize: "9px", fontWeight: 700 }}>–</span>}
+                  {allChecked && <span style={{ color: "white", fontSize: "14px", fontWeight: 700 }}>✓</span>}
+                  {!allChecked && groupChecked > 0 && <span style={{ color: "#3A7BD5", fontSize: "14px", fontWeight: 700 }}>–</span>}
                 </div>
-                <span style={{ fontSize: "11px", fontWeight: 700, color: "#374151", flex: 1 }}>{depth1}</span>
-                <span style={{ fontSize: "10px", color: "#94A3B8", fontFamily: "monospace" }}>
+                <span style={{ fontSize: "14px", fontWeight: 700, color: "#374151", flex: 1 }}>{depth1}</span>
+                <span style={{ fontSize: "14px", color: "#94A3B8", fontFamily: "monospace" }}>
                   {groupChecked}/{screens.length}
                 </span>
               </div>
@@ -828,12 +828,12 @@ function ScreenAssignPanel({
                       borderRadius: "2px", background: checked ? "#3A7BD5" : "white",
                       flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
                     }}>
-                      {checked && <span style={{ color: "white", fontSize: "8px", fontWeight: 700 }}>✓</span>}
+                      {checked && <span style={{ color: "white", fontSize: "14px", fontWeight: 700 }}>✓</span>}
                     </div>
-                    <span style={{ fontSize: "11px", color: checked ? "#1E40AF" : "#6B7280", flex: 1 }}>
+                    <span style={{ fontSize: "14px", color: checked ? "#1E40AF" : "#6B7280", flex: 1 }}>
                       {[s.depth2, s.depth3].filter(Boolean).join(" › ")}
                     </span>
-                    <div style={{ display: "flex", gap: "6px", fontSize: "10px", fontFamily: "monospace" }}>
+                    <div style={{ display: "flex", gap: "6px", fontSize: "14px", fontFamily: "monospace" }}>
                       <span style={{ color: checked ? "#3A7BD5" : "#9CA3AF" }}>PV {(s.pvShare * 100).toFixed(1)}%</span>
                       <span style={{ color: checked ? "#00D4A4" : "#9CA3AF" }}>UV {(s.uvShare * 100).toFixed(1)}%</span>
                     </div>
@@ -851,8 +851,8 @@ function ScreenAssignPanel({
 function ResultRow({ value }: { value: string }) {
   return (
     <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "4px 10px", borderTop: "1px solid #E2E8F0", background: "#F8FAFC" }}>
-      <span style={{ fontSize: "11px", color: "#64748B", marginRight: "12px" }}>소계</span>
-      <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#3A7BD5", fontSize: "12px" }}>{value}</span>
+      <span style={{ fontSize: "14px", color: "#64748B", marginRight: "12px" }}>소계</span>
+      <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#3A7BD5", fontSize: "14px" }}>{value}</span>
     </div>
   );
 }

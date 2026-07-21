@@ -48,15 +48,15 @@ export default function ScorePage() {
 
   return (
     <div style={{ maxWidth: "720px" }}>
-      <div style={{ fontWeight: 700, fontSize: "13px", marginBottom: "8px", paddingBottom: "6px", borderBottom: "1px solid #D0CECE" }}>
+      <div style={{ fontWeight: 700, fontSize: "14px", marginBottom: "8px", paddingBottom: "6px", borderBottom: "1px solid #D0CECE" }}>
         프로젝트 평가점수 입력
-        <span style={{ fontWeight: 400, fontSize: "11px", color: "#AEAAAA", marginLeft: "8px" }}>— 무기명</span>
+        <span style={{ fontWeight: 400, fontSize: "14px", color: "#AEAAAA", marginLeft: "8px" }}>— 무기명</span>
       </div>
 
       <div style={{ display: "flex", gap: "6px", marginBottom: "8px" }}>
         {SCORE_CATEGORIES.map((c) => (
           <div key={c.key} style={{ flex: 1, background: "#D9E1F2", border: "1px solid #AEAAAA", padding: "4px 8px", textAlign: "center" }}>
-            <div style={{ fontWeight: 700, fontSize: "12px", color: "#1F3864" }}>{c.label}</div>
+            <div style={{ fontWeight: 700, fontSize: "14px", color: "#1F3864" }}>{c.label}</div>
             <div style={{ fontSize: "16px", fontWeight: 700, color: "#4472C4" }}>{(c.weight * 100).toFixed(0)}%</div>
           </div>
         ))}
@@ -75,7 +75,7 @@ export default function ScorePage() {
                 {SCORE_CATEGORIES.map((c) => (
                   <th key={c.key} style={{ textAlign: "center", width: "90px" }}>
                     {c.label}<br />
-                    <span style={{ fontSize: "10px", fontWeight: 400, opacity: 0.8 }}>×{(c.weight * 100).toFixed(0)}%</span>
+                    <span style={{ fontSize: "14px", fontWeight: 400, opacity: 0.8 }}>×{(c.weight * 100).toFixed(0)}%</span>
                   </th>
                 ))}
                 <th style={{ textAlign: "right", width: "80px", background: "#2F5496" }}>가중 합계</th>
@@ -91,7 +91,7 @@ export default function ScorePage() {
                   <tr key={p.id} style={{ opacity: already ? 0.55 : 1 }}>
                     <td style={{ fontWeight: 600 }}>
                       <div style={{ maxWidth: "180px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.name}</div>
-                      <div style={{ fontSize: "10px", color: "#AEAAAA" }}>
+                      <div style={{ fontSize: "14px", color: "#AEAAAA" }}>
                         {p.season}{already && <span style={{ color: "#217346", marginLeft: "4px" }}>· 제출 완료</span>}
                       </div>
                     </td>
@@ -126,7 +126,7 @@ export default function ScorePage() {
         <button className="xl-btn xl-btn-primary" onClick={handleSubmit} disabled={projects.length === 0}>
           익명 제출
         </button>
-        <span style={{ fontSize: "11px", color: "#AEAAAA" }}>이름 없이 제출됩니다.</span>
+        <span style={{ fontSize: "14px", color: "#AEAAAA" }}>이름 없이 제출됩니다.</span>
       </div>
     </div>
   );

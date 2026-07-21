@@ -14,7 +14,7 @@ export default function StatusBar() {
     <div style={{
       background: "#217346",
       color: "white",
-      fontSize: "11px",
+      fontSize: "14px",
       fontFamily: "'Malgun Gothic', '맑은 고딕', Arial, sans-serif",
       padding: "2px 16px",
       display: "flex",

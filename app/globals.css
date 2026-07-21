@@ -24,7 +24,7 @@ body {
   background: #F0F0F0;
   color: #000000;
   font-family: var(--xl-font);
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: auto;
@@ -36,7 +36,7 @@ body {
   border-radius: 0;
   padding: 3px 6px;
   font-family: var(--xl-font);
-  font-size: 12px;
+  font-size: 14px;
   background: white;
   color: #000;
   outline: none;
@@ -53,7 +53,7 @@ body {
   border-radius: 2px;
   padding: 4px 12px;
   font-family: var(--xl-font);
-  font-size: 12px;
+  font-size: 14px;
   background: #F2F2F2;
   color: #000;
   cursor: pointer;
@@ -80,7 +80,7 @@ body {
 .xl-table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   font-family: var(--xl-font);
 }
 .xl-table th {

@@ -60,15 +60,15 @@ export default function BulkScorePage() {
         padding: "12px 16px", marginBottom: "8px",
         display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap",
       }}>
-        <span style={{ color: "#00D4A4", fontWeight: 700, fontSize: "13px", fontFamily: "monospace" }}>
+        <span style={{ color: "#00D4A4", fontWeight: 700, fontSize: "14px", fontFamily: "monospace" }}>
           LPEX 평가 입력
         </span>
-        <span style={{ fontSize: "11px", color: "#4B5563" }}>·</span>
-        <span style={{ fontSize: "11px", color: "#6B7280" }}>같은 이름으로 재제출 시 덮어씁니다</span>
+        <span style={{ fontSize: "14px", color: "#4B5563" }}>·</span>
+        <span style={{ fontSize: "14px", color: "#6B7280" }}>같은 이름으로 재제출 시 덮어씁니다</span>
 
         {/* 이름 입력 */}
         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "auto" }}>
-          <span style={{ fontSize: "11px", color: "#8B949E" }}>평가자:</span>
+          <span style={{ fontSize: "14px", color: "#8B949E" }}>평가자:</span>
           <input
             placeholder="이름 입력"
             value={scorerName}
@@ -76,12 +76,12 @@ export default function BulkScorePage() {
             style={{
               padding: "5px 10px", background: hasName ? "#0D1F3C" : "#161B22",
               border: `1px solid ${hasName ? "#3A7BD5" : "#30363D"}`,
-              color: "#E6EDF3", fontSize: "12px", outline: "none", borderRadius: "2px",
+              color: "#E6EDF3", fontSize: "14px", outline: "none", borderRadius: "2px",
               width: "120px", fontFamily: "monospace",
             }}
           />
           {hasName && (
-            <span style={{ fontSize: "11px", color: "#3A7BD5", fontWeight: 700 }}>
+            <span style={{ fontSize: "14px", color: "#3A7BD5", fontWeight: 700 }}>
               {alreadySubmitted.size > 0 ? `${alreadySubmitted.size}건 제출됨` : "신규"}
             </span>
           )}
@@ -91,7 +91,7 @@ export default function BulkScorePage() {
         <div style={{ display: "flex", gap: "2px" }}>
           {["all", ...uniqueSeasons].map((s) => (
             <button key={s} onClick={() => setFilterSeason(s)} style={{
-              padding: "4px 8px", fontSize: "11px",
+              padding: "4px 8px", fontSize: "14px",
               background: filterSeason === s ? "#21262D" : "transparent",
               color: filterSeason === s ? "#00D4A4" : "#6B7280",
               border: `1px solid ${filterSeason === s ? "#30363D" : "transparent"}`,
@@ -106,7 +106,7 @@ export default function BulkScorePage() {
           onClick={handleSave}
           disabled={!hasName}
           style={{
-            padding: "6px 16px", fontSize: "12px", fontWeight: 700,
+            padding: "6px 16px", fontSize: "14px", fontWeight: 700,
             background: saved ? "#059669" : hasName ? "linear-gradient(180deg,#3A7BD5 0%,#1E40AF 100%)" : "#21262D",
             color: hasName ? "#fff" : "#4B5563",
             border: "none", cursor: hasName ? "pointer" : "default",
@@ -123,13 +123,13 @@ export default function BulkScorePage() {
         background: "#161B22", border: "1px solid #21262D", borderRadius: "2px",
       }}>
         {SCORE_CATEGORIES.map((c, i) => (
-          <span key={c.key} style={{ fontSize: "11px", color: CAT_COLORS[i], display: "flex", alignItems: "center", gap: "5px" }}>
+          <span key={c.key} style={{ fontSize: "14px", color: CAT_COLORS[i], display: "flex", alignItems: "center", gap: "5px" }}>
             <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: CAT_COLORS[i] }} />
             {c.label}
             <span style={{ color: "#4B5563" }}>×{(c.weight * 100).toFixed(0)}%</span>
           </span>
         ))}
-        <span style={{ marginLeft: "auto", fontSize: "11px", color: "#4B5563" }}>
+        <span style={{ marginLeft: "auto", fontSize: "14px", color: "#4B5563" }}>
           {filtered.length}개 종목
         </span>
       </div>
@@ -140,23 +140,23 @@ export default function BulkScorePage() {
         </div>
       ) : (
         <div style={{ border: "1px solid #21262D", background: "#0D1117", overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px", fontVariantNumeric: "tabular-nums" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", fontVariantNumeric: "tabular-nums" }}>
             <thead>
               <tr style={{ background: "#161B22", color: "#8B949E", borderBottom: "1px solid #21262D" }}>
-                <th style={{ padding: "7px 10px", textAlign: "left", fontWeight: 600, fontSize: "11px", width: "90px" }}>종목코드</th>
-                <th style={{ padding: "7px 10px", textAlign: "left", fontWeight: 600, fontSize: "11px", minWidth: "160px" }}>프로젝트명</th>
-                <th style={{ padding: "7px 10px", textAlign: "center", fontWeight: 600, fontSize: "11px", width: "60px" }}>PM</th>
+                <th style={{ padding: "7px 10px", textAlign: "left", fontWeight: 600, fontSize: "14px", width: "90px" }}>종목코드</th>
+                <th style={{ padding: "7px 10px", textAlign: "left", fontWeight: 600, fontSize: "14px", minWidth: "160px" }}>프로젝트명</th>
+                <th style={{ padding: "7px 10px", textAlign: "center", fontWeight: 600, fontSize: "14px", width: "60px" }}>PM</th>
                 {SCORE_CATEGORIES.map((c, i) => (
                   <th key={c.key} style={{
                     padding: "7px 10px", textAlign: "center", fontWeight: 600,
-                    fontSize: "11px", minWidth: "100px", color: CAT_COLORS[i],
+                    fontSize: "14px", minWidth: "100px", color: CAT_COLORS[i],
                   }}>
                     {c.label}
-                    <div style={{ fontSize: "10px", opacity: 0.7, fontWeight: 400 }}>×{(c.weight * 100).toFixed(0)}%</div>
+                    <div style={{ fontSize: "14px", opacity: 0.7, fontWeight: 400 }}>×{(c.weight * 100).toFixed(0)}%</div>
                   </th>
                 ))}
-                <th style={{ padding: "7px 10px", textAlign: "right", fontWeight: 600, fontSize: "11px", width: "80px", color: "#00D4A4" }}>합계</th>
-                <th style={{ padding: "7px 10px", textAlign: "right", fontWeight: 600, fontSize: "11px", width: "70px" }}>제출자</th>
+                <th style={{ padding: "7px 10px", textAlign: "right", fontWeight: 600, fontSize: "14px", width: "80px", color: "#00D4A4" }}>합계</th>
+                <th style={{ padding: "7px 10px", textAlign: "right", fontWeight: 600, fontSize: "14px", width: "70px" }}>제출자</th>
               </tr>
             </thead>
             <tbody>
@@ -187,16 +187,16 @@ export default function BulkScorePage() {
                     background: isDraft ? "#0D1F3C" : isAlreadyMine ? "#0D1A0D" : rowBg,
                   }}>
                     {/* 종목코드 */}
-                    <td style={{ padding: "6px 10px", color: "#4B9FEA", fontFamily: "monospace", fontSize: "11px", fontWeight: 600 }}>
+                    <td style={{ padding: "6px 10px", color: "#4B9FEA", fontFamily: "monospace", fontSize: "14px", fontWeight: 600 }}>
                       {p.excelId ?? "-"}
                     </td>
 
                     {/* 프로젝트명 */}
                     <td style={{ padding: "6px 10px" }}>
-                      <div style={{ fontWeight: 600, color: "#E6EDF3", fontSize: "12px", maxWidth: "160px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      <div style={{ fontWeight: 600, color: "#E6EDF3", fontSize: "14px", maxWidth: "160px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {p.name}
                       </div>
-                      <div style={{ fontSize: "10px", marginTop: "1px" }}>
+                      <div style={{ fontSize: "14px", marginTop: "1px" }}>
                         {isDraft && <span style={{ color: "#3A7BD5" }}>작성 중</span>}
                         {!isDraft && isAlreadyMine && <span style={{ color: "#059669" }}>✓ 제출 완료</span>}
                         {!isDraft && !isAlreadyMine && <span style={{ color: "#4B5563" }}>미제출</span>}
@@ -204,7 +204,7 @@ export default function BulkScorePage() {
                     </td>
 
                     {/* PM */}
-                    <td style={{ padding: "6px 10px", textAlign: "center", color: "#8B949E", fontSize: "11px" }}>
+                    <td style={{ padding: "6px 10px", textAlign: "center", color: "#8B949E", fontSize: "14px" }}>
                       {p.pm ?? "-"}
                     </td>
 
@@ -223,7 +223,7 @@ export default function BulkScorePage() {
                             style={{
                               width: "68px", padding: "4px 6px", textAlign: "right",
                               background: "#0D1F3C", border: `1px solid ${CAT_COLORS[ci]}44`,
-                              color: "#E6EDF3", fontSize: "12px", fontFamily: "monospace",
+                              color: "#E6EDF3", fontSize: "14px", fontFamily: "monospace",
                               outline: "none", borderRadius: "2px", boxSizing: "border-box",
                             }}
                           />
@@ -245,7 +245,7 @@ export default function BulkScorePage() {
                             )}
                           </div>
                           {avgVal !== null && (
-                            <div style={{ fontSize: "9px", color: "#4B5563", marginTop: "1px" }}>
+                            <div style={{ fontSize: "14px", color: "#4B5563", marginTop: "1px" }}>
                               평균 {avgVal.toFixed(0)}
                             </div>
                           )}
@@ -258,12 +258,12 @@ export default function BulkScorePage() {
                       {weighted !== null ? (
                         <div>
                           <span style={{
-                            fontWeight: 700, fontSize: "13px",
+                            fontWeight: 700, fontSize: "14px",
                             color: weighted >= 80 ? "#00D4A4" : weighted >= 60 ? "#F59E0B" : "#F87171",
                           }}>
                             {weighted.toFixed(1)}
                           </span>
-                          <span style={{ fontSize: "10px", color: "#4B5563" }}>점</span>
+                          <span style={{ fontSize: "14px", color: "#4B5563" }}>점</span>
                         </div>
                       ) : (
                         <span style={{ color: "#30363D" }}>-</span>
@@ -275,10 +275,10 @@ export default function BulkScorePage() {
                       {submitCount > 0 ? (
                         <div>
                           <span style={{ color: "#3A7BD5", fontWeight: 700, fontFamily: "monospace" }}>{submitCount}</span>
-                          <span style={{ fontSize: "10px", color: "#4B5563" }}>명</span>
+                          <span style={{ fontSize: "14px", color: "#4B5563" }}>명</span>
                         </div>
                       ) : (
-                        <span style={{ color: "#30363D", fontSize: "11px" }}>-</span>
+                        <span style={{ color: "#30363D", fontSize: "14px" }}>-</span>
                       )}
                     </td>
                   </tr>
@@ -287,7 +287,7 @@ export default function BulkScorePage() {
             </tbody>
             <tfoot>
               <tr style={{ background: "#161B22", borderTop: "1px solid #21262D" }}>
-                <td colSpan={3} style={{ padding: "6px 10px", fontSize: "11px", color: "#4B5563", fontFamily: "monospace" }}>
+                <td colSpan={3} style={{ padding: "6px 10px", fontSize: "14px", color: "#4B5563", fontFamily: "monospace" }}>
                   {filtered.length}개 종목 · {Object.keys(scores).filter(id => Object.values(scores[id]).some(v => v > 0)).length}건 입력됨
                 </td>
                 {SCORE_CATEGORIES.map((c) => <td key={c.key} />)}

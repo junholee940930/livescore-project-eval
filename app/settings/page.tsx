@@ -29,7 +29,7 @@ export default function SettingsPage() {
     <div style={{ maxWidth: "640px", fontFamily: "'Malgun Gothic', '맑은 고딕', monospace" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px", paddingBottom: "8px", borderBottom: "2px solid #0D1F3C" }}>
         <h1 style={{ margin: 0, fontSize: "14px", fontWeight: 700 }}>⚙️ 주가 산정 변수 설정</h1>
-        <span style={{ fontSize: "11px", color: "#94A3B8" }}>일 단위 기준 · 시즌 {SEASON_DAYS}일 적용</span>
+        <span style={{ fontSize: "14px", color: "#94A3B8" }}>일 단위 기준 · 시즌 {SEASON_DAYS}일 적용</span>
       </div>
 
       {/* 일평균 지표 */}
@@ -65,7 +65,7 @@ export default function SettingsPage() {
           hint="PV 1회당 하루 벌어들이는 광고수익"
         >
           <NumInput value={form.adRevenuePerPVDaily} onChange={(v) => set("adRevenuePerPVDaily", v)} step={0.00001} decimals={5} />
-          <span style={{ marginLeft: "6px", fontSize: "11px", color: "#94A3B8" }}>원/PV/일</span>
+          <span style={{ marginLeft: "6px", fontSize: "14px", color: "#94A3B8" }}>원/PV/일</span>
         </FieldRow>
         <FieldRow
           label="1UV당 일 광고매출"
@@ -73,7 +73,7 @@ export default function SettingsPage() {
           hint="UV 1명당 하루 벌어들이는 광고수익"
         >
           <NumInput value={form.adRevenuePerUVDaily} onChange={(v) => set("adRevenuePerUVDaily", v)} step={0.001} decimals={3} />
-          <span style={{ marginLeft: "6px", fontSize: "11px", color: "#94A3B8" }}>원/UV/일</span>
+          <span style={{ marginLeft: "6px", fontSize: "14px", color: "#94A3B8" }}>원/UV/일</span>
         </FieldRow>
       </Section>
 
@@ -81,20 +81,20 @@ export default function SettingsPage() {
       <Section title="🎯 기타 매출 단가">
         <FieldRow label="픽 1건당 단가" note="" hint="픽 구매 1건 단가">
           <NumInput value={form.pickPricePerUnit} onChange={(v) => set("pickPricePerUnit", v)} />
-          <span style={{ marginLeft: "6px", fontSize: "11px", color: "#94A3B8" }}>원</span>
+          <span style={{ marginLeft: "6px", fontSize: "14px", color: "#94A3B8" }}>원</span>
         </FieldRow>
         <FieldRow label="구독 월정액" note="" hint="구독 1명당 월 결제금액">
           <NumInput value={form.subscriptionMonthly} onChange={(v) => set("subscriptionMonthly", v)} />
-          <span style={{ marginLeft: "6px", fontSize: "11px", color: "#94A3B8" }}>원/월</span>
+          <span style={{ marginLeft: "6px", fontSize: "14px", color: "#94A3B8" }}>원/월</span>
         </FieldRow>
         <FieldRow label="선물 1건당 단가" note="화면 미정 — 추후 활성화" hint="">
           <NumInput value={form.giftPricePerUnit} onChange={(v) => set("giftPricePerUnit", v)} />
-          <span style={{ marginLeft: "6px", fontSize: "11px", color: "#94A3B8" }}>원</span>
+          <span style={{ marginLeft: "6px", fontSize: "14px", color: "#94A3B8" }}>원</span>
         </FieldRow>
       </Section>
 
       {/* 시즌 정의 안내 */}
-      <div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "4px", padding: "10px 14px", marginBottom: "12px", fontSize: "12px", color: "#1E40AF" }}>
+      <div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "4px", padding: "10px 14px", marginBottom: "12px", fontSize: "14px", color: "#1E40AF" }}>
         <strong>시즌 = {SEASON_DAYS}일</strong> &nbsp;·&nbsp;
         S1 (1~4월) · S2 (5~8월) · S3 (9~12월) &nbsp;|&nbsp;
         주가 기준가 = 일평균 트래픽 × 점유율 × 일단가 × {SEASON_DAYS}일
@@ -104,7 +104,7 @@ export default function SettingsPage() {
         <button
           onClick={handleSave}
           style={{
-            padding: "7px 18px", fontSize: "13px", fontWeight: 700,
+            padding: "7px 18px", fontSize: "14px", fontWeight: 700,
             background: saved ? "#059669" : "#0D1F3C", color: "white",
             border: "none", borderRadius: "4px", cursor: "pointer",
           }}
@@ -113,7 +113,7 @@ export default function SettingsPage() {
         </button>
         <button
           onClick={() => setForm({ ...settings })}
-          style={{ padding: "7px 14px", fontSize: "12px", border: "1px solid #CBD5E1", background: "white", borderRadius: "4px", cursor: "pointer" }}
+          style={{ padding: "7px 14px", fontSize: "14px", border: "1px solid #CBD5E1", background: "white", borderRadius: "4px", cursor: "pointer" }}
         >
           되돌리기
         </button>
@@ -125,7 +125,7 @@ export default function SettingsPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "16px", border: "1px solid #E2E8F0", borderRadius: "6px", overflow: "hidden" }}>
-      <div style={{ background: "#0D1F3C", color: "white", padding: "7px 14px", fontWeight: 700, fontSize: "12px" }}>
+      <div style={{ background: "#0D1F3C", color: "white", padding: "7px 14px", fontWeight: 700, fontSize: "14px" }}>
         {title}
       </div>
       <div>{children}</div>
@@ -137,13 +137,13 @@ function FieldRow({ label, note, hint, children }: { label: string; note: string
   return (
     <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", borderBottom: "1px solid #F1F5F9" }}>
       <div style={{ padding: "10px 14px", background: "#F8FAFC", borderRight: "1px solid #E2E8F0" }}>
-        <div style={{ fontSize: "12px", fontWeight: 600, color: "#0F172A" }}>{label}</div>
-        {hint && <div style={{ fontSize: "10px", color: "#94A3B8", marginTop: "2px" }}>{hint}</div>}
+        <div style={{ fontSize: "14px", fontWeight: 600, color: "#0F172A" }}>{label}</div>
+        {hint && <div style={{ fontSize: "14px", color: "#94A3B8", marginTop: "2px" }}>{hint}</div>}
       </div>
       <div style={{ padding: "10px 14px" }}>
         <div style={{ display: "flex", alignItems: "center" }}>{children}</div>
         {note && (
-          <div style={{ marginTop: "4px", fontSize: "11px", color: "#059669", fontFamily: "monospace" }}>
+          <div style={{ marginTop: "4px", fontSize: "14px", color: "#059669", fontFamily: "monospace" }}>
             → {note}
           </div>
         )}
@@ -186,7 +186,7 @@ function NumInput({
         padding: "5px 8px",
         border: "1px solid #CBD5E1",
         borderRadius: "4px",
-        fontSize: "13px",
+        fontSize: "14px",
         fontFamily: "monospace",
         textAlign: "right",
       }}

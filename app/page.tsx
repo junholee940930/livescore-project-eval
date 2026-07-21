@@ -103,10 +103,10 @@ export default function MarketDashboard() {
         color: "white",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
-          <span style={{ color: "#00D4A4", fontWeight: 700, fontSize: "13px", fontFamily: "monospace" }}>LPEX 시장현황</span>
-          <span style={{ fontSize: "11px", color: "#4B5563" }}>·</span>
-          <span style={{ fontSize: "11px", color: "#6B7280" }}>오늘 기준 시뮬레이션 주가</span>
-          <span className="live-dot" style={{ marginLeft: "auto", fontSize: "11px", color: "#00D4A4", fontFamily: "monospace" }}>● 실시간</span>
+          <span style={{ color: "#00D4A4", fontWeight: 700, fontSize: "14px", fontFamily: "monospace" }}>LPEX 시장현황</span>
+          <span style={{ fontSize: "14px", color: "#4B5563" }}>·</span>
+          <span style={{ fontSize: "14px", color: "#6B7280" }}>오늘 기준 시뮬레이션 주가</span>
+          <span className="live-dot" style={{ marginLeft: "auto", fontSize: "14px", color: "#00D4A4", fontFamily: "monospace" }}>● 실시간</span>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
           <MarketCard label="총 시가총액" value={formatKRW(Math.round(totalMarketCap))} color="#00D4A4" />
@@ -131,7 +131,7 @@ export default function MarketDashboard() {
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px", background: "#fff", border: "1px solid #D1D5DB", padding: "6px 10px" }}>
         {/* 검색 */}
         <div style={{ position: "relative", flex: "0 0 220px" }}>
-          <span style={{ position: "absolute", left: "8px", top: "50%", transform: "translateY(-50%)", color: "#9CA3AF", fontSize: "12px", pointerEvents: "none" }}>🔍</span>
+          <span style={{ position: "absolute", left: "8px", top: "50%", transform: "translateY(-50%)", color: "#9CA3AF", fontSize: "14px", pointerEvents: "none" }}>🔍</span>
           <input
             type="text"
             placeholder="종목명 · PM · 코드"
@@ -140,7 +140,7 @@ export default function MarketDashboard() {
             style={{
               width: "100%",
               padding: "5px 24px 5px 26px",
-              fontSize: "12px",
+              fontSize: "14px",
               border: "1px solid #D1D5DB",
               borderRadius: "0",
               outline: "none",
@@ -151,7 +151,7 @@ export default function MarketDashboard() {
             }}
           />
           {searchQuery && (
-            <button onClick={() => setSearchQuery("")} style={{ position: "absolute", right: "6px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: "#9CA3AF", fontSize: "12px", padding: 0 }}>✕</button>
+            <button onClick={() => setSearchQuery("")} style={{ position: "absolute", right: "6px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: "#9CA3AF", fontSize: "14px", padding: 0 }}>✕</button>
           )}
         </div>
 
@@ -163,7 +163,7 @@ export default function MarketDashboard() {
             return (
               <button key={f} onClick={() => setQuickFilter(f)} style={{
                 padding: "4px 10px",
-                fontSize: "11px",
+                fontSize: "14px",
                 fontWeight: active ? 700 : 400,
                 background: active ? btnColor : "#F3F4F6",
                 color: active ? "#fff" : btnColor,
@@ -181,7 +181,7 @@ export default function MarketDashboard() {
           {["전체", ...uniqueSeasons].map((s) => (
             <button key={s} onClick={() => setSeasonFilter(s)} style={{
               padding: "4px 8px",
-              fontSize: "11px",
+              fontSize: "14px",
               fontWeight: seasonFilter === s ? 700 : 400,
               background: seasonFilter === s ? "#0D1117" : "#F3F4F6",
               color: seasonFilter === s ? "#00D4A4" : "#6B7280",
@@ -195,10 +195,10 @@ export default function MarketDashboard() {
         </div>
 
         <div style={{ marginLeft: "auto", display: "flex", gap: "6px" }}>
-          <Link href="/upload" style={{ padding: "5px 10px", fontSize: "11px", border: "1px solid #D1D5DB", background: "#F9FAFB", color: "#374151", textDecoration: "none", borderRadius: "0" }}>
+          <Link href="/upload" style={{ padding: "5px 10px", fontSize: "14px", border: "1px solid #D1D5DB", background: "#F9FAFB", color: "#374151", textDecoration: "none", borderRadius: "0" }}>
             종목 업로드
           </Link>
-          <Link href="/projects/new" style={{ padding: "5px 10px", fontSize: "11px", border: "1px solid #0D1117", background: "#0D1117", color: "#00D4A4", textDecoration: "none", borderRadius: "0", fontWeight: 700 }}>
+          <Link href="/projects/new" style={{ padding: "5px 10px", fontSize: "14px", border: "1px solid #0D1117", background: "#0D1117", color: "#00D4A4", textDecoration: "none", borderRadius: "0", fontWeight: 700 }}>
             + 종목 등록
           </Link>
         </div>
@@ -211,7 +211,7 @@ export default function MarketDashboard() {
         </div>
       ) : (
         <div style={{ border: "1px solid #D1D5DB", borderRadius: "0", overflow: "hidden", background: "white" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px", fontVariantNumeric: "tabular-nums" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", fontVariantNumeric: "tabular-nums" }}>
             <thead>
               <tr style={{ background: "#0D1117", color: "#8B949E" }}>
                 <Th style={{ width: "60px" }}>종목코드</Th>
@@ -238,7 +238,7 @@ export default function MarketDashboard() {
                   >
                     {/* 종목코드 */}
                     <td style={{ padding: "4px 8px", textAlign: "center" }}>
-                      <Link href={`/projects/${project.id}`} style={{ fontFamily: "monospace", color: "#4B9FEA", fontSize: "11px", fontWeight: 600, textDecoration: "none", borderBottom: "1px solid #4B9FEA44" }}>
+                      <Link href={`/projects/${project.id}`} style={{ fontFamily: "monospace", color: "#4B9FEA", fontSize: "14px", fontWeight: 600, textDecoration: "none", borderBottom: "1px solid #4B9FEA44" }}>
                         {project.excelId ?? `P${String(i + 1).padStart(3, "0")}`}
                       </Link>
                     </td>
@@ -246,17 +246,17 @@ export default function MarketDashboard() {
                     {/* 프로젝트명 */}
                     <td style={{ padding: "4px 8px" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "nowrap" }}>
-                        <span style={{ fontWeight: 600, color: "#0F172A", fontSize: "12px", whiteSpace: "nowrap" }}>{project.name}</span>
-                        {project.pm && <span style={{ fontSize: "10px", color: "#94A3B8", whiteSpace: "nowrap", flexShrink: 0 }}>· {project.pm}</span>}
+                        <span style={{ fontWeight: 600, color: "#0F172A", fontSize: "14px", whiteSpace: "nowrap" }}>{project.name}</span>
+                        {project.pm && <span style={{ fontSize: "14px", color: "#94A3B8", whiteSpace: "nowrap", flexShrink: 0 }}>· {project.pm}</span>}
                       </div>
-                      <span style={{ fontSize: "10px", background: "#E2E8F0", color: "#475569", padding: "0 4px", fontFamily: "monospace", fontWeight: 600 }}>
+                      <span style={{ fontSize: "14px", background: "#E2E8F0", color: "#475569", padding: "0 4px", fontFamily: "monospace", fontWeight: 600 }}>
                         {formatSeason(project.season)}
                       </span>
                     </td>
 
                     {/* 상태 */}
                     <td style={{ padding: "4px 4px", textAlign: "center" }}>
-                      <span style={{ fontSize: "11px", fontWeight: 600, color: STATUS_COLORS[project.status ?? ""]?.text ?? "#6B7280" }}>
+                      <span style={{ fontSize: "14px", fontWeight: 600, color: STATUS_COLORS[project.status ?? ""]?.text ?? "#6B7280" }}>
                         {project.status || "-"}
                       </span>
                     </td>
@@ -267,20 +267,20 @@ export default function MarketDashboard() {
                         <span style={{
                           color: "#0F172A",
                           fontWeight: 700,
-                          fontSize: "12px",
+                          fontSize: "14px",
                         }}>{formatKRW(today.price)}</span>
                       ) : <span style={{ color: "#9CA3AF" }}>-</span>}
                     </td>
 
                     {/* 등락(원) */}
-                    <td style={{ padding: "4px 6px", textAlign: "right", fontFamily: "monospace", fontSize: "11px", color, fontWeight: 600 }}>
+                    <td style={{ padding: "4px 6px", textAlign: "right", fontFamily: "monospace", fontSize: "14px", color, fontWeight: 600 }}>
                       {today ? (isUp ? "▲" : isDown ? "▼" : "") + (today.change >= 0 ? "+" : "") + today.change.toLocaleString("ko-KR") : "-"}
                     </td>
 
                     {/* 등락률 */}
                     <td style={{ padding: "4px 6px", textAlign: "center" }}>
                       {today ? (
-                        <span style={{ color, fontSize: "11px", fontWeight: 700, fontFamily: "monospace" }}>
+                        <span style={{ color, fontSize: "14px", fontWeight: 700, fontFamily: "monospace" }}>
                           {Math.abs(today.changePct).toFixed(2)}%
                         </span>
                       ) : "-"}
@@ -298,12 +298,12 @@ export default function MarketDashboard() {
                     {/* 액션 */}
                     <td style={{ padding: "4px 4px", textAlign: "center" }}>
                       <div style={{ display: "flex", gap: "6px", alignItems: "center", justifyContent: "center" }}>
-                        <Link href={`/projects/${project.id}`} style={{ fontSize: "11px", color: "#4B9FEA", textDecoration: "none", fontWeight: 600 }}>
+                        <Link href={`/projects/${project.id}`} style={{ fontSize: "14px", color: "#4B9FEA", textDecoration: "none", fontWeight: 600 }}>
                           상세
                         </Link>
                         <button
                           onClick={() => { if (confirm(`"${project.name}"을(를) 상장 폐지합니까?`)) deleteProject(project.id); }}
-                          style={{ fontSize: "10px", color: "#F87171", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                          style={{ fontSize: "14px", color: "#F87171", background: "none", border: "none", cursor: "pointer", padding: 0 }}
                         >
                           상폐
                         </button>
@@ -317,7 +317,7 @@ export default function MarketDashboard() {
             {/* 합계 행 */}
             <tfoot>
               <tr style={{ background: "#0D1117", color: "#6B7280" }}>
-                <td colSpan={3} style={{ padding: "5px 10px", fontSize: "11px", fontFamily: "monospace" }}>
+                <td colSpan={3} style={{ padding: "5px 10px", fontSize: "14px", fontFamily: "monospace" }}>
                   {quickFiltered.length}개 종목 표시 / 전체 {rows.length}개
                 </td>
                 <td colSpan={5} />
@@ -333,16 +333,16 @@ export default function MarketDashboard() {
 function MarketCard({ label, value, sub, color }: { label: string; value: string; sub?: string; color: string }) {
   return (
     <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: "4px", padding: "10px 12px" }}>
-      <div style={{ fontSize: "10px", color: "#6B7280", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</div>
-      <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "13px", color, wordBreak: "break-all" }}>{value}</div>
-      {sub && <div style={{ fontSize: "11px", color, marginTop: "2px", fontFamily: "monospace" }}>{sub}</div>}
+      <div style={{ fontSize: "14px", color: "#6B7280", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</div>
+      <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "14px", color, wordBreak: "break-all" }}>{value}</div>
+      {sub && <div style={{ fontSize: "14px", color, marginTop: "2px", fontFamily: "monospace" }}>{sub}</div>}
     </div>
   );
 }
 
 function Th({ children, style }: { children?: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <th style={{ padding: "8px 6px", textAlign: "center", fontWeight: 600, fontSize: "11px", whiteSpace: "nowrap", letterSpacing: "0.03em", ...style }}>
+    <th style={{ padding: "8px 6px", textAlign: "center", fontWeight: 600, fontSize: "14px", whiteSpace: "nowrap", letterSpacing: "0.03em", ...style }}>
       {children}
     </th>
   );
@@ -366,7 +366,7 @@ function ThSort({
         padding: "8px 6px",
         textAlign: "right",
         fontWeight: 600,
-        fontSize: "11px",
+        fontSize: "14px",
         whiteSpace: "nowrap",
         cursor: "pointer",
         color: cur === col ? "#00D4A4" : "#8B949E",
